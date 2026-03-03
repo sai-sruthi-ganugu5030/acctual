@@ -11,10 +11,14 @@ const Razorpay = require('razorpay');
 
 const googleClient = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
-const razorpay = new Razorpay({
-  key_id: process.env.RAZORPAY_KEY_ID || '',
-  key_secret: process.env.RAZORPAY_KEY_SECRET || '',
-});
+// Initialize Razorpay only if credentials are provided
+let razorpay = null;
+if (process.env.RAZORPAY_KEY_ID && process.env.RAZORPAY_KEY_SECRET) {
+  razorpay = new Razorpay({
+    key_id: process.env.RAZORPAY_KEY_ID,
+    key_secret: process.env.RAZORPAY_KEY_SECRET,
+  });
+}
 
 const app = express();
 const JWT_SECRET = 'acctual-jwt-secret-key-2024';
@@ -197,6 +201,8 @@ app.delete('/api/invoices/:id', protect, (req, res) => {
 
 // ── Payment routes (Razorpay) ─────────────────────────────────────────────────
 app.post('/api/payments/create-order', protect, async (req, res) => {
+  if (!razorpay) return res.status(503).json({ error: 'Payment service unavailable' });
+
   const { invoiceId } = req.body;
   const invoices = readJSON(INVOICES_FILE);
   const invoice = invoices.find(inv => inv.id === invoiceId && inv.userId === req.user.id);
