@@ -254,7 +254,7 @@ const buildExists = fs.existsSync(buildIndexPath);
 
 if (buildExists) {
   app.use(express.static(buildPath));
-  app.get('*', (req, res) => {
+  app.get(/.*/, (req, res) => {
     res.sendFile(buildIndexPath, (err) => {
       if (err) {
         console.error('Error serving index.html:', err);
