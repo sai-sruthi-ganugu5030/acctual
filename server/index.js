@@ -247,13 +247,15 @@ app.post('/api/payments/verify', protect, async (req, res) => {
   res.json(invoices[idx]);
 });
 
-// Serve React build in production
-if (process.env.NODE_ENV === 'production') {
-  const buildPath = path.join(__dirname, '../build');
+// Serve React build if it exists
+const buildPath = path.join(__dirname, '../build');
+const buildIndexPath = path.join(buildPath, 'index.html');
+const buildExists = fs.existsSync(buildIndexPath);
+
+if (buildExists) {
   app.use(express.static(buildPath));
   app.get('*', (req, res) => {
-    const indexPath = path.join(buildPath, 'index.html');
-    res.sendFile(indexPath, (err) => {
+    res.sendFile(buildIndexPath, (err) => {
       if (err) {
         console.error('Error serving index.html:', err);
         res.status(500).json({ error: 'Could not serve app' });
@@ -261,9 +263,9 @@ if (process.env.NODE_ENV === 'production') {
     });
   });
 } else {
-  // Development fallback
+  // Build doesn't exist - show API message
   app.get('/', (req, res) => {
-    res.json({ message: 'API running in development mode' });
+    res.json({ message: 'API running - React build not found', buildPath, buildExists });
   });
 }
 
