@@ -1,0 +1,67 @@
+[
+  {
+    "id": "85e5d2f6-f485-4bef-bf66-23dc187a9401",
+    "userId": "5587ce64-72ff-4d26-93c4-866a94688f55",
+    "invoiceNumber": "INV-0001",
+    "clientName": "Aaron",
+    "clientEmail": "aaron@gmail.com",
+    "items": [
+      {
+        "description": "Burger",
+        "quantity": 1,
+        "price": 120
+      }
+    ],
+    "currency": "USD",
+    "dueDate": "2026-03-02",
+    "notes": "Paying to GSS",
+    "total": 120,
+    "status": "paid",
+    "createdAt": "2026-03-02T17:24:04.977Z",
+    "updatedAt": "2026-03-02T17:24:11.259Z"
+  },
+  {
+    "id": "6167be97-1dc2-4ab8-a776-3badc700fff4",
+    "userId": "5587ce64-72ff-4d26-93c4-866a94688f55",
+    "invoiceNumber": "INV-0002",
+    "clientName": "Akshaya",
+    "clientEmail": "akshaya@gmail.com",
+    "items": [
+      {
+        "description": "Test ",
+        "quantity": 1,
+        "price": 1
+      }
+    ],
+    "currency": "INR",
+    "dueDate": "2026-03-03",
+    "notes": "Paying to Akshaya",
+    "total": 1,
+    "status": "paid",
+    "createdAt": "2026-03-02T18:40:47.080Z",
+    "paymentId": "pay_SMSadyNngpEvIb",
+    "paidAt": "2026-03-02T18:43:26.557Z"
+  },
+  {
+    "id": "5729c0b9-dc72-4181-814f-30c61afb2e48",
+    "userId": "5587ce64-72ff-4d26-93c4-866a94688f55",
+    "invoiceNumber": "INV-0003",
+    "clientName": "Vicky",
+    "clientEmail": "vicky@gmail.com",
+    "items": [
+      {
+        "description": "Test",
+        "quantity": 1,
+        "price": 1
+      }
+    ],
+    "currency": "INR",
+    "dueDate": "2026-03-03",
+    "notes": "Paying to Vicky",
+    "total": 1,
+    "status": "paid",
+    "createdAt": "2026-03-02T18:45:33.533Z",
+    "paymentId": "pay_SMSdNEBjZ76ltm",
+    "paidAt": "2026-03-02T18:46:01.434Z"
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "id": "372e5ffc-ec43-4b1e-9dd3-ddbba33d3718",
+    "name": "Test User",
+    "email": "test@test.com",
+    "password": "$2b$10$vgXrtK6QKBF8RvI8YxQrHOHvNuIpzgttSPwIn14um7o1Uk/mU9syW",
+    "createdAt": "2026-03-02T17:21:12.825Z"
+  },
+  {
+    "id": "5587ce64-72ff-4d26-93c4-866a94688f55",
+    "name": "Sai Sruthi G",
+    "email": "ssg3043sruthi@gmail.com",
+    "password": "$2b$10$d4EYpXcG82dj5SInDSA3NeWHCvuGCdlgjr5x1mzsAa1nQwT1.Pr9i",
+    "createdAt": "2026-03-02T17:22:58.737Z",
+    "googleId": "107164635546569172216",
+    "picture": "https://lh3.googleusercontent.com/a/ACg8ocLRNvfHHI0lSjjdQF-5J9HPDKDKkWGvyUz19IxzUdXrLJ97jA=s96-c"
+  }
+]
