@@ -249,9 +249,21 @@ app.post('/api/payments/verify', protect, async (req, res) => {
 
 // Serve React build in production
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../build')));
+  const buildPath = path.join(__dirname, '../build');
+  app.use(express.static(buildPath));
   app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../build', 'index.html'));
+    const indexPath = path.join(buildPath, 'index.html');
+    res.sendFile(indexPath, (err) => {
+      if (err) {
+        console.error('Error serving index.html:', err);
+        res.status(500).json({ error: 'Could not serve app' });
+      }
+    });
+  });
+} else {
+  // Development fallback
+  app.get('/', (req, res) => {
+    res.json({ message: 'API running in development mode' });
   });
 }
 
